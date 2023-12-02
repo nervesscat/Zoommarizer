@@ -13,7 +13,9 @@ def mp3ToText(audioName):
     transcript = openai.getTranscript(audioName)
     with open('transcript.txt', 'w') as f:
         f.write(transcript.text)
-    print('Transcript written to transcript.txt')
+    summary = openai.createSummary(transcript.text)
+    with open('summarize.md', 'w') as f:
+        f.write(str(summary))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
