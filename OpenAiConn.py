@@ -20,5 +20,5 @@ class OPENAICONN:
             messages=[
                 {"role": "system", "content": self.my_assistant.instructions},
                 {"role": "user", "content": transcript}])
-        return completion.choices[0].message.content
+        return str(completion.choices[0].message.content)
  
